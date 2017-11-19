@@ -1,4 +1,4 @@
-package com.example.cmd.pop;
+package com.example.cmd.pop.Activitys;
 
 
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+
+import com.example.cmd.pop.Fragments.MainViewFragment;
+import com.example.cmd.pop.R;
+import com.example.cmd.pop.Fragments.SecondProductFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
