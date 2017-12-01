@@ -33,14 +33,14 @@
                 android:gravity="bottom">
 
                 <TextView
-                    android:id="@+id/productTitle"
+                    android:id="@+id/secondProductTitle"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Dell Laptop"/>
 
                 <TextView
-                    android:id="@+id/productPrice"
+                    android:id="@+id/secondProductPrice"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

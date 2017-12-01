@@ -27,7 +27,7 @@ public class SecondProductAdapter extends RecyclerView.Adapter<SecondProductAdap
 
     @Override
     public SecondProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new SecondProductAdapter.SecondProductViewHolder(LayoutInflater.from(ctx).inflate(R.layout.fragment_second_product_layout,parent,false));
+        return new SecondProductAdapter.SecondProductViewHolder(LayoutInflater.from(ctx).inflate(R.layout.second_product_layout,parent,false));
     }
 
     @Override
@@ -46,8 +46,8 @@ public class SecondProductAdapter extends RecyclerView.Adapter<SecondProductAdap
 
         public SecondProductViewHolder(View itemView) {
             super(itemView);
-            mTitle = (TextView)itemView.findViewById(R.id.productTitle);
-            mPrice = (TextView)itemView.findViewById(R.id.productPrice);
+            mTitle = (TextView)itemView.findViewById(R.id.secondProductTitle);
+            mPrice = (TextView)itemView.findViewById(R.id.secondProductPrice);
         }
 
         public void bind(Product pr) {

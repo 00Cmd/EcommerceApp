@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.cmd.pop.Fragments.MainViewFragment;
 import com.example.cmd.pop.R;
 import com.example.cmd.pop.Fragments.SecondProductFragment;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Always select the first item at the start
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
-
     }
 
 

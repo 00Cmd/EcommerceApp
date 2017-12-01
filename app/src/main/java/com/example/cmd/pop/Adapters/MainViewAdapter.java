@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.example.cmd.pop.JavaClasses.Product;
 import com.example.cmd.pop.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.List;
 
@@ -16,7 +18,9 @@ import java.util.List;
  * Created by cmd on 17.11.17.
  */
 
+
 public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainViewHolder> {
+
     private List<Product> mProducts;
     private Context ctx;
 
@@ -27,7 +31,7 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
 
     @Override
     public MainViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new MainViewAdapter.MainViewHolder(LayoutInflater.from(ctx).inflate(R.layout.product_list_layout,parent,false));
+        return new MainViewHolder(LayoutInflater.from(ctx).inflate(R.layout.product_list_layout,parent,false));
     }
 
     @Override
@@ -40,13 +44,13 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
         return mProducts.size();
     }
 
-    public class MainViewHolder extends RecyclerView.ViewHolder {
-        private TextView mTitle,mPrice;
+    public static class MainViewHolder extends RecyclerView.ViewHolder {
+        private TextView mTitle, mPrice;
 
         public MainViewHolder(View itemView) {
             super(itemView);
-            mTitle = (TextView)itemView.findViewById(R.id.productTitle);
-            mPrice = (TextView)itemView.findViewById(R.id.productPrice);
+            mTitle = (TextView) itemView.findViewById(R.id.productTitle);
+            mPrice = (TextView) itemView.findViewById(R.id.productPrice);
         }
 
         public void bind(Product pr) {
@@ -54,4 +58,5 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
             mPrice.setText(pr.getPrice());
         }
     }
+
 }
