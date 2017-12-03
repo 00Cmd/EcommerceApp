@@ -1,6 +1,7 @@
 package com.example.cmd.pop.Activitys;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -10,15 +11,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.cmd.pop.Fragments.MainViewFragment;
 import com.example.cmd.pop.R;
 import com.example.cmd.pop.Fragments.SecondProductFragment;
+import com.example.cmd.pop.notifications.NotificationCountSetClass;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
+    public static int notificationCountCart = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_items,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_cart:
+                Intent i = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(i);
+                return true;
+            default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        MenuItem item = menu.findItem(R.id.action_cart);
+        NotificationCountSetClass.setAddToCart(MainActivity.this, item,notificationCountCart);
+        invalidateOptionsMenu();
+        return super.onPrepareOptionsMenu(menu);
+
+    }
 
     @Override
     public void onBackPressed() {

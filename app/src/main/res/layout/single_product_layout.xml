@@ -31,27 +31,30 @@
         android:layout_gravity="center_horizontal">
 
         <TextView
+            android:id="@+id/singleItemTitle"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Electronics"/>
+            android:hint="Electronics"/>
 
         <TextView
+            android:id="@+id/singleItemDescription"
             android:gravity="center_horizontal"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LENOVO X220"/>
+            android:hint="LENOVO X220"/>
 
         <TextView
+            android:id="@+id/singleItemPrice"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textStyle="bold"
             android:textSize="30sp"
-            android:text="255$"/>
+            android:hint="255$"/>
     </LinearLayout>
 
     <LinearLayout
@@ -62,13 +65,22 @@
         android:layout_gravity="center_horizontal">
 
         <Button
+            android:id="@+id/singleItemAddCartBtn"
             android:layout_marginStart="140dp"
-            android:layout_marginLeft="140dp"
             style="@style/Widget.AppCompat.Button.Colored"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to cart" />
+
+        <Button
+            android:id="@+id/singleItemCartCheckout"
+            android:layout_marginStart="140dp"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go to cart" />
 
     </LinearLayout>
 

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.example.cmd.pop.Activitys.PageAdapterActivity;
 import com.example.cmd.pop.Adapters.MainViewAdapter;
+import com.example.cmd.pop.JavaClasses.CartProductList;
 import com.example.cmd.pop.JavaClasses.Product;
 import com.example.cmd.pop.R;
 import com.example.cmd.pop.RecyclerItemClickListener;
@@ -55,22 +56,18 @@ import java.util.List;
             updateList();
             mainViewAdapter = new MainViewAdapter(mProducts,getActivity());
             mView.setAdapter(mainViewAdapter);
-            onItemClikc();
+            onItemClick();
             return v;
         }
 
 
-        private void onItemClikc() {
+        private void onItemClick() {
             mView.addOnItemTouchListener( new RecyclerItemClickListener(getActivity(), mView,
                     new RecyclerItemClickListener.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position) {
                             Intent i = new Intent(getActivity(), PageAdapterActivity.class);
-                            Bundle bundle = new Bundle();
-                            ArrayList<Product> mProductList = new ArrayList<Product>();
-                            mProductList.addAll(mProducts);
-                            bundle.putParcelableArrayList("productList",mProductList);
-                            i.putExtras(bundle);
+                            CartProductList.setProductsForPager(mProducts);
                             getActivity().startActivity(i);
                         }
 
