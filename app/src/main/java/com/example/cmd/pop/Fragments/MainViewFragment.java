@@ -37,6 +37,7 @@ import java.util.List;
         private MainViewAdapter mainViewAdapter;
         private List<Product> mProducts;
         private DatabaseReference mRef;
+        public static int size;
 
 
         public MainViewFragment() {
@@ -67,7 +68,12 @@ import java.util.List;
                         @Override
                         public void onItemClick(View view, int position) {
                             Intent i = new Intent(getActivity(), PageAdapterActivity.class);
-                            CartProductList.setProductsForPager(mProducts);
+                            Bundle bundle = new Bundle();
+                            ArrayList<Product> productList = new ArrayList<>();
+                            productList.addAll(mProducts);
+                            bundle.putParcelableArrayList("products",productList);
+                            bundle.putInt("position",position);
+                            i.putExtras(bundle);
                             getActivity().startActivity(i);
                         }
 
@@ -85,6 +91,7 @@ import java.util.List;
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     mProducts.add(dataSnapshot.getValue(Product.class));
                     mainViewAdapter.notifyDataSetChanged();
+
 
                 }
 

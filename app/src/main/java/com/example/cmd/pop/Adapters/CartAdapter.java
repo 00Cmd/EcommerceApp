@@ -43,12 +43,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         return mProducts.size();
     }
 
-    public static class CartViewHolder extends RecyclerView.ViewHolder {
+    static class CartViewHolder extends RecyclerView.ViewHolder {
         private TextView mTitle,mPrice,mAmount;
         private Button mAdd,mRemove;
         private int amount = 1;
 
-        public CartViewHolder(View itemView) {
+        CartViewHolder(View itemView) {
             super(itemView);
             mTitle = (TextView) itemView.findViewById(R.id.cartItemTitle);
             mPrice = (TextView) itemView.findViewById(R.id.cartItemPrice);

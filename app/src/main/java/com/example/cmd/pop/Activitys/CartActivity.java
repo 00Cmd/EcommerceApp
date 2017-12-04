@@ -23,14 +23,11 @@ import java.util.List;
  */
 
 public class CartActivity extends AppCompatActivity {
-    private List<Product> mProducts;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_activity_layout);
-
-
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = new CartFragment();
         fm.beginTransaction().add(R.id.cartContainer,fragment).commit();

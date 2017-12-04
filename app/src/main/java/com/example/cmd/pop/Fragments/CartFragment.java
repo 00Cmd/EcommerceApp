@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.cmd.pop.Activitys.MainActivity;
@@ -59,7 +58,7 @@ public class CartFragment extends Fragment {
         LinearLayout layoutCartPayments = (LinearLayout)v.findViewById(R.id.layout_payment);
         LinearLayout layoutCartNoItems = (LinearLayout)v.findViewById(R.id.layout_cart_empty);
 
-        if(MainActivity.notificationCountCart >0){
+        if(MainActivity.notificationCountCart >0 || mProducts.size() > 0){
             layoutCartNoItems.setVisibility(View.GONE);
             layoutCartItems.setVisibility(View.VISIBLE);
             layoutCartPayments.setVisibility(View.VISIBLE);
@@ -67,14 +66,6 @@ public class CartFragment extends Fragment {
             layoutCartNoItems.setVisibility(View.VISIBLE);
             layoutCartItems.setVisibility(View.GONE);
             layoutCartPayments.setVisibility(View.GONE);
-
-//            Button bStartShopping = (Button)v.findViewById(R.id.bAddNew);
-//            bStartShopping.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    finish();
-//                }
-//            });
         }
     }
 }

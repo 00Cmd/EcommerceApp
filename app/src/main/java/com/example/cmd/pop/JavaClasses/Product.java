@@ -12,7 +12,7 @@ import java.util.UUID;
  * Created by cmd on 17.11.17.
  */
 
-public class Product {
+public class Product implements Parcelable {
     private String title,price,id;
     private UUID mId;
     private int intId = 0;
@@ -52,32 +52,32 @@ public class Product {
         return intId;
     }
 
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-//    @Override
-//    public void writeToParcel(Parcel dest, int flags) {
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
 //        dest.writeInt(getId());
-//        dest.writeString(getTitle());
-//        dest.writeString(getPrice());
-//    }
-//
-//    public Product(Parcel in) {
+        dest.writeString(getTitle());
+        dest.writeString(getPrice());
+    }
+
+    public Product(Parcel in) {
 //        int id = getId();
 //         id = in.readInt();
-//         title = in.readString();
-//         price = in.readString();
-//    }
-//
-//    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
-//        public Product createFromParcel(Parcel in) {
-//            return new Product(in);
-//        }
-//
-//        public Product[] newArray(int size) {
-//            return new Product[size];
-//        }
-//    };
+         title = in.readString();
+         price = in.readString();
+    }
+
+    public static final Parcelable.Creator<Product> CREATOR = new Parcelable.Creator<Product>() {
+        public Product createFromParcel(Parcel in) {
+            return new Product(in);
+        }
+
+        public Product[] newArray(int size) {
+            return new Product[size];
+        }
+    };
 }

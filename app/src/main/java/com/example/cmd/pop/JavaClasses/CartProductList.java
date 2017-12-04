@@ -8,31 +8,19 @@ import java.util.List;
  */
 
 public class CartProductList {
-    private static List<Product> mProducts = new ArrayList<>();
-    private static List<Product> mPagerProducts = new ArrayList<>();
-
+    private static List<Product> sProducts = new ArrayList<>();
     public CartProductList() {
     }
 
-    public static void setProductsForCart(Product pr) {
-        mProducts.add(pr);
+    public static void addProductToCart(Product pr) {
+        sProducts.add(pr);
     }
 
     public static List<Product> getProductsForCart() {
-        return mProducts;
-    }
-
-    public static void setProductsForPager(Product pr) {
-        mPagerProducts.add(pr);
-    }
-    public static void setProductsForPager(List<Product> products) {
-        mPagerProducts.addAll(products);
+        return sProducts;
     }
 
 
-    public static List<Product> getProductsForPager() {
-        return mPagerProducts;
-    }
 
 
 
