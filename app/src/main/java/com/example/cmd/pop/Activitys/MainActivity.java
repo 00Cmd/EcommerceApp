@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Always select the first item at the start
         onNavigationItemSelected(navigationView.getMenu().getItem(0));
+
     }
 
     @Override
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent i = new Intent(MainActivity.this, CartActivity.class);
                 startActivity(i);
                 return true;
+            case R.id.addProduct:
+                startActivity(new Intent(MainActivity.this, AddProductActivity.class));
+                return true;
             default:
             return super.onOptionsItemSelected(item);
         }
@@ -72,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NotificationCountSetClass.setAddToCart(MainActivity.this, item,notificationCountCart);
         invalidateOptionsMenu();
         return super.onPrepareOptionsMenu(menu);
-
     }
 
     @Override
@@ -82,7 +85,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }    }
+        }
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

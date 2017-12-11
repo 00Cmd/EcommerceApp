@@ -3,8 +3,8 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group1">
         <item
-            android:id="@+id/nav_recommended"
-            android:title="Recommended" />
+            android:id="@+id/addProduct"
+            android:title="Add Product" />
         <item
             android:id="@+id/nav_reading_list"
             android:title="Reading List"/>
@@ -15,7 +15,7 @@
             android:id="@+id/nav_search"
             android:title="Search"/>
         <item
-            android:id="@+id/nav_read_articles"
-            android:title="Articles Read" />
+            android:id="@+id/logout"
+            android:title="Logout" />
     </group>
 </menu>

@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import com.example.cmd.pop.JavaClasses.Product;
 import com.example.cmd.pop.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import java.util.List;
 

@@ -13,16 +13,19 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Activitys.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+        <activity android:name=".Activitys.PageAdapterActivity"
+            android:parentActivityName=".Activitys.MainActivity"/>
+        <activity android:name=".Activitys.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activitys.PageAdapterActivity"
-            android:parentActivityName=".Activitys.MainActivity"/>
-
         <activity android:name=".Activitys.CartActivity"/>
+        <activity android:name=".Activitys.RegisterActivity"/>
     </application>
 
 </manifest>

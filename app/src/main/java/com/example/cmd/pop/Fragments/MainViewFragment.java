@@ -17,7 +17,6 @@ import com.example.cmd.pop.JavaClasses.CartProductList;
 import com.example.cmd.pop.JavaClasses.Product;
 import com.example.cmd.pop.R;
 import com.example.cmd.pop.RecyclerItemClickListener;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,9 +34,9 @@ import java.util.List;
         private static final String TAG = "MainViewFragment";
         private RecyclerView mView;
         private MainViewAdapter mainViewAdapter;
+        private MainViewAdapter sMainViewAdapter;
         private List<Product> mProducts;
         private DatabaseReference mRef;
-        public static int size;
 
 
         public MainViewFragment() {
@@ -91,8 +90,6 @@ import java.util.List;
                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                     mProducts.add(dataSnapshot.getValue(Product.class));
                     mainViewAdapter.notifyDataSetChanged();
-
-
                 }
 
                 @Override
@@ -124,15 +121,16 @@ import java.util.List;
     }
 
     private int getItemPosition(Product product) {
-            int index = -1;
-        for (int i = 0; i < mProducts.size() ; i++) {
-            int key1 = Integer.valueOf(mProducts.get(i).getStringId());
-            int key2 = Integer.valueOf(product.getStringId());
-            if(key1 == key2) {
-                index = i;
-                break;
+        int key1;
+        int key2 = Integer.valueOf(product.getStringId());
+        int index = -1;
+            for (int i = 0; i < mProducts.size() ; i++) {
+                key1 = Integer.valueOf(mProducts.get(i).getStringId());
+                if (key1 == key2) {
+                    index = i;
+                    break;
+                }
             }
-        }
         return index;
     }
 
@@ -143,17 +141,5 @@ import java.util.List;
             mProducts = new ArrayList<>();
         }
         mProducts.clear();
-
-//        mRef = FirebaseDatabase.getInstance().getReference().child("products");
-//        mProducts = new ArrayList<>();
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//        mProducts = Db.getDatabase(getActivity(),mRef).getProducts();
-//        mAdapter.setData(mProducts);
-
-            }
-//        }).start();
-
-//    }
+    }
 }
